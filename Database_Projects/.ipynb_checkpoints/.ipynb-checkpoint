@@ -1,0 +1,606 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sqlite3 as S\n",
+    "con = S.connect(\"Tonii_Store.db\")\n",
+    "cur = con.cursor()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d1 = cur.execute(\"select * from Customers where Cus_Name = 'Ahmed'  \").fetchall()\n",
+    "d2 = cur.execute(\"select * from Customers where Cus_Id >= 3 \")\n",
+    "d3 =cur.execute(\"select * from Customers where Adge > 25 \")\n",
+    "d4 = cur.execute(\"select * from Customers where City = 'Berlin'\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Id :: 7 , The Name :: Ahmed , The City :: HumBurg , The Adge :: 32 , The Gender :: Male\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i1 , i2 ,i3 , i4,i5 in d1 :\n",
+    "    print(f\"The Id :: {i1} , The Name :: {i2} , The City :: {i3} , The Adge :: {i4} , The Gender :: {i5}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "the row :: (7, 'Ahmed', 'HumBurg', 32, 'Male')\n",
+      "\n",
+      "========\n",
+      "the_id :: 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in d1 :\n",
+    "    print(f\"the row :: {i}\\n\\n========\\nthe_id :: {i[0]}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_data (sql , data) :\n",
+    "    global con\n",
+    "    global cur\n",
+    "    \n",
+    "    cur.execute(sql , data)\n",
+    "    \n",
+    "    rows = cur.fetchall()\n",
+    "    for Cus_Id , Cus_Name , City , Adge , Gender in rows :\n",
+    "        print(f\" the ID :: {Cus_Id} , The Name :: {Cus_Name} , The City :: {City} , The Adge :: {Adge} ,The Gender :: {Gender} \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where Cus_Name =? \" , [\"Ahmed\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n",
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where Cus_Id >=? \" , [3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 1 , The Name :: Toni , The City :: Berlin , The Adge :: 30 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where Adge >? \" , [25])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where City =? \" , [\"London\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 1 , The Name :: Toni , The City :: Berlin , The Adge :: 30 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n",
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers \" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where City like ? \" , [\"%o%\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where City like ? \" , [\"%a%\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_data2 (schema ,condition ) :\n",
+    "    global con \n",
+    "    global cur\n",
+    "    \n",
+    "    cur.execute(schema , condition)\n",
+    "    rows = cur.fetchall()\n",
+    "    for Order_Id , Order_Time , Cus_Id , Shipper_Id in rows :\n",
+    "        print(f\"The Id :: {Order_Id} , The Time :: {Order_Time} , The Cus-Id :: {Cus_Id} , The Shipper_Id :: {Shipper_Id}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Id :: 111 , The Time :: Yestarday , The Cus-Id :: 1 , The Shipper_Id :: 10\n",
+      "The Id :: 112 , The Time :: Sontag , The Cus-Id :: 2 , The Shipper_Id :: 11\n",
+      "The Id :: 113 , The Time :: MiTTWochen , The Cus-Id :: 3 , The Shipper_Id :: 12\n",
+      "The Id :: 114 , The Time :: Sumstag , The Cus-Id :: 1 , The Shipper_Id :: 10\n",
+      "The Id :: 115 , The Time :: Freitag , The Cus-Id :: 2 , The Shipper_Id :: 11\n",
+      "The Id :: 116 , The Time :: Dienstag , The Cus-Id :: 2 , The Shipper_Id :: 11\n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data2(\"select * from Orders\" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Id :: 114 , The Time :: Sumstag , The Cus-Id :: 1 , The Shipper_Id :: 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data2(\"select * from Orders where Ord_Time =?\" , [\"Sumstag\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Id :: 112 , The Time :: Sontag , The Cus-Id :: 2 , The Shipper_Id :: 11\n",
+      "The Id :: 114 , The Time :: Sumstag , The Cus-Id :: 1 , The Shipper_Id :: 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data2(\"select * from Orders where Ord_Time like ?\" , [\"S%\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('Sontag',), ('Freitag',), ('Dienstag',)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Ord_Time from Orders where Cus_Id in(select Cus_Id from Customers where Cus_Name =?)\" , ['Marco'])\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (<ipython-input-18-db8a7168bb1b>, line 3)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;36m  File \u001b[1;32m\"<ipython-input-18-db8a7168bb1b>\"\u001b[1;36m, line \u001b[1;32m3\u001b[0m\n\u001b[1;33m    print(i[])\u001b[0m\n\u001b[1;37m            ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "d = cur.execute(\"select Ord_Time from Orders where Cus_Id in(select Cus_Id from Customers where Cus_Name =?)\" , ['Marco']).fetchall()\n",
+    "for i in d :\n",
+    "    print(i[])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 1 , The Name :: Toni , The City :: Berlin , The Adge :: 30 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n",
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers  order by Cus_Id Asc\" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n",
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 1 , The Name :: Toni , The City :: Berlin , The Adge :: 30 ,The Gender :: Male \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers  order by Cus_Id DESC\" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 6 , The Name :: Ghada , The City :: Quait , The Adge :: 26 ,The Gender :: Female \n",
+      " the ID :: 5 , The Name :: Alaa , The City :: London , The Adge :: 20 ,The Gender :: Female \n",
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers  order by Cus_Id DESC limit 3\" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 4 , The Name :: Noura , The City :: DuBai , The Adge :: 23 ,The Gender :: Female \n",
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers  order by Cus_Id DESC limit 3  offset 2\" , [])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " the ID :: 3 , The Name :: Ahmed , The City :: Egypt , The Adge :: 27 ,The Gender :: Male \n",
+      " the ID :: 2 , The Name :: Marco , The City :: USA , The Adge :: 28 ,The Gender :: Male \n",
+      " the ID :: 1 , The Name :: Toni , The City :: Berlin , The Adge :: 30 ,The Gender :: Male \n"
+     ]
+    }
+   ],
+   "source": [
+    "get_data(\"select * from Customers where Adge >? and Gender like ?  order by Cus_Id DESC\" , [25 , \"M%\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('Berlin', 1), ('DuBai', 1), ('Egypt', 1), ('HumBurg', 1), ('London', 1), ('Quait', 1), ('USA', 1)]\n",
+      "City ::Berlin\n",
+      "the count of gender ::1\n",
+      "City ::DuBai\n",
+      "the count of gender ::1\n",
+      "City ::Egypt\n",
+      "the count of gender ::1\n",
+      "City ::HumBurg\n",
+      "the count of gender ::1\n",
+      "City ::London\n",
+      "the count of gender ::1\n",
+      "City ::Quait\n",
+      "the count of gender ::1\n",
+      "City ::USA\n",
+      "the count of gender ::1\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select City , count(Gender) from Customers group by City\")\n",
+    "r = cur.fetchall()\n",
+    "print(r)\n",
+    "for i in r :\n",
+    "    print(f\"City ::{i[0]}\\nthe count of gender ::{i[1]}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[(1, 2), (2, 3), (3, 1)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Cus_Id , count(Shipper_Id) As C_ID from Orders group by Cus_Id\")\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[(1, 2), (2, 3)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Cus_Id , count(Shipper_Id) As C_ID from Orders group by Cus_Id having C_ID > 1\")\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[(1, 2), (2, 3)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Cus_Id , count(Shipper_Id) As C_ID from Orders group by Cus_Id having C_ID >? \" ,[1])\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('Toni', 'Sumstag'), ('Toni', 'Yestarday'), ('Marco', 'Dienstag'), ('Marco', 'Freitag'), ('Marco', 'Sontag'), ('Ahmed', 'MiTTWochen')]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Customers.Cus_Name ,Orders.Ord_Time from Customers inner join Orders where Customers.Cus_Id = Orders.Cus_Id   \")\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('Toni', 'Sumstag'), ('Toni', 'Yestarday'), ('Marco', 'Dienstag'), ('Marco', 'Freitag'), ('Marco', 'Sontag'), ('Ahmed', 'MiTTWochen')]\n"
+     ]
+    }
+   ],
+   "source": [
+    "cur.execute(\"select Customers.Cus_Name ,Orders.Ord_Time from Customers left join Orders where Customers.Cus_Id = Orders.Cus_Id   \")\n",
+    "r = cur.fetchall()\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cur.execute(\"update Customers set Cus_Name =? where Cus_Id =?\" ,[\"Turkey\" , 3])\n",
+    "con.commit()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cur.execute(\"insert into Customers (Cus_Name , Cus_Id , City , Adge , Gender) values(?,?,?,?,?)\" , [\"Ahmed\" , 7 , \"HumBurg\" , 32 , \"Male\"])\n",
+    "con.commit()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
