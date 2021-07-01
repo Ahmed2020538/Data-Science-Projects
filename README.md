@@ -102,7 +102,7 @@ pip install -r requirements.txt
 ## Team
 
 <img src="Ahmed.jpg" width="280" height="350" alt="Stickman">
-[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) |)
+[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) )
 
 ## Team
 
