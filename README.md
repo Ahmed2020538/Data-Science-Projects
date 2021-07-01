@@ -102,7 +102,7 @@ pip install -r requirements.txt
 
 
 ## Team
-![Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538)
+[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538)
 -|
 [Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) |)
 
