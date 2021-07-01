@@ -102,7 +102,7 @@ pip install -r requirements.txt
 ## Team
 [![Debmalya Ghosal](https://avatars2.githubusercontent.com/u/60285205?s=144&u=45fc55fc21b66ed5ea26153766e3d8e1cc3f4449&v=4)](https://github.com/debmalya92) |
 -|
-[Debmalya Ghosal](https://github.com/debmalya92) |)
+[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) |)
 
 ## Credits
 - The datasets & data dictionary has been provided by [UpGrad](https://www.upgrad.com/). This project wouldn't have been possible without this dataset.
