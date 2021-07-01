@@ -102,7 +102,8 @@ pip install -r requirements.txt
 ## Team
 
 <img src="Ahmed.jpg" width="280" height="350" alt="Stickman">
-[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) 
+[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) |)
+
 
 ## Credits
 - The datasets & data dictionary has been provided by [UpGrad](https://www.upgrad.com/). This project wouldn't have been possible without this dataset.
