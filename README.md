@@ -99,13 +99,10 @@ pip install -r requirements.txt
 
 [<img target="_blank" src="https://matplotlib.org/_static/logo2_compressed.svg" width=170>](https://matplotlib.org)      [<img target="_blank" src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" width=150>](https://seaborn.pydata.org)      [<img target="_blank" src="https://jupyter.org/assets/nav_logo.svg" width=150>](https://jupyter.org)
 
-## Team
 
-<img src="Ahmed.jpg" width="280" height="350" alt="Stickman">
-[Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) )
 
 ## Team
-[![Ahmed Elsayed Ebrahim]](https://github.com/Ahmed2020538)
+![Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538)
 -|
 [Ahmed Elsayed Ebrahim](https://github.com/Ahmed2020538) |)
 
