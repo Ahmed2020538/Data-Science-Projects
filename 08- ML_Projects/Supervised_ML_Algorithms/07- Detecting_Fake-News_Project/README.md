@@ -1,3 +1,16 @@
+# Fake NEWS PROBLEM ::
+****************************
+  * Do you trust all the news you hear from social media?
+
+  * All news are not real, right?
+
+  * How will you detect fake news?
+
+  * The answer is Python. By practicing this advanced python project of detecting fake news, you will easily make a difference between real and fake news.
+
+  * Before moving ahead in this machine learning project, get aware of the terms related to it like fake news, tfidfvectorizer, PassiveAggressive Classifier.
+
+
 # What is Fake News?
 ****************************
   * A type of yellow journalism, fake news encapsulates pieces of news that may be hoaxes and is generally spread through social media and other online media. This is often done to further or impose certain ideas and is often achieved with political agendas. Such news items may contain false and/or exaggerated claims, and may end up being viralized by algorithms, and users may end up in a filter bubble.
@@ -9,6 +22,29 @@
   * IDF (Inverse Document Frequency): Words that occur many times a document, but also occur many times in many others, may be irrelevant. IDF is a measure of how significant a term is in the entire corpus.
 
   * The TfidfVectorizer converts a collection of raw documents into a matrix of TF-IDF features.
+
+# # What is a Support vector Classifier?
+**************************************************
+
+  * Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection.
+
+  * The advantages of support vector machines are:
+
+  * Effective in high dimensional spaces.
+
+  * Still effective in cases where number of dimensions is greater than the number of samples.
+
+  * Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
+
+  * Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+
+  * The disadvantages of support vector machines include:
+
+  * If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+
+  * SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation (see Scores and probabilities, below).
+
+  * The support vector machines in scikit-learn support both dense (numpy.ndarray and convertible to that by numpy.asarray) and sparse (any scipy.sparse) sample vectors as input. However, to use an SVM to make predictions for sparse data, it must have been fit on such data. For optimal performance, use C-ordered numpy.ndarray (dense) or scipy.sparse.csr_matrix (sparse) with dtype=float64.
 
 # What is a PassiveAggressiveClassifier?
 ******************************************
