@@ -23,7 +23,7 @@
 
   * The TfidfVectorizer converts a collection of raw documents into a matrix of TF-IDF features.
 
-# # What is a Support vector Classifier?
+#  What is a Support vector Classifier?
 **************************************************
 
   * Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection.
