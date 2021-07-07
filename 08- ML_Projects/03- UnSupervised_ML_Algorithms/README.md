@@ -1,11 +1,12 @@
 ## UNSUPERVISED ML PROJECTS ::
 *********************************
-
+## Content ::
+******************************
 * Mall Customers Segmentation Project.
 * Univeristy Studint Segmentation Project.
 
 
-Model ::
+Models ::
 * On That Repo we will Create Projects related Unsupervised ML Models.
-  * KMeans Algo.
-  * Hirarical ML Algo.
+  * KMeans Clustring ML Algo.
+  * Hirarical Clustring ML Algo.
