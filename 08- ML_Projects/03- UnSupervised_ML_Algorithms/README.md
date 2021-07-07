@@ -11,7 +11,7 @@
 <br />
 <p align="center">
  <a href="">
-    <img src="images/customer.jpg" alt="Logo" width="100%" height="100%">
+    <img src="Customers 1.png" alt="Logo" width="100%" height="100%">
   </a> 
 
   <h1 align="center">Mall Customer Segmentation</h1>
@@ -97,24 +97,13 @@ Contributions are what make the open source community such an amazing place to b
 
 ---
 
-<!-- LICENSE -->
-
-
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © <a href="http://adityamangla.com" target="_blank">Aditya Mangla</a>.
-
----
 
 <!-- CONTACT -->
 ## Contact
 
-Aditya Mangla - [@aadimangla](https://twitter.com/aadimangla) - aadimangla@gmail.com - [adityamangla.com](http://www.adityamangla.com/index.html)
+Aditya Mangla - [@aadimangla](https://twitter.com/AhmedEL09668322) - ahmed.elsayed862@yahoo.com 
 
-Project Link: [https://github.com/aadimangla/Mall-Customer-Segmentation](https://github.com/aadimangla/Mall-Customer-Segmentation)
+Project Link: [https://github.com/Ahmed2020538/Data-Science-Projects/tree/main/08-%20ML_Projects/03-%20UnSupervised_ML_Algorithms/01-%20Mall%20Customers%20Segmentation](https://github.com/Ahmed2020538/Data-Science-Projects/tree/main/08-%20ML_Projects/03-%20UnSupervised_ML_Algorithms/01-%20Mall%20Customers%20Segmentation)
 
 ---
 
