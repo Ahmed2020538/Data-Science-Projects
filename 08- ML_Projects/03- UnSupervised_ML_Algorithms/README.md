@@ -1,10 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]](https://github.com/aadimangla/Mall-Customer-Segmentation/issues)
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/ahmed-elsayed-31a399199/]
-
 
 
 <!-- PROJECT LOGO -->
@@ -101,7 +94,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Aditya Mangla - [@aadimangla](https://twitter.com/AhmedEL09668322) - ahmed.elsayed862@yahoo.com 
+Aditya Mangla - [@ahmedelsayed](https://twitter.com/AhmedEL09668322) - ahmed.elsayed862@yahoo.com 
 
 Project Link: [https://github.com/Ahmed2020538/Data-Science-Projects/tree/main/08-%20ML_Projects/03-%20UnSupervised_ML_Algorithms/01-%20Mall%20Customers%20Segmentation](https://github.com/Ahmed2020538/Data-Science-Projects/tree/main/08-%20ML_Projects/03-%20UnSupervised_ML_Algorithms/01-%20Mall%20Customers%20Segmentation)
 
