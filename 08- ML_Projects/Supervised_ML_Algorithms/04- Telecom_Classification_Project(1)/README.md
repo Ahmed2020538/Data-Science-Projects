@@ -2,6 +2,7 @@
 
 ## Table of Content
   * [Overview](#overview)
+  * [Features of data](#Features of data)
   * [Motivation](#motivation)
   * [Understanding of Churn](#understanding-of-churn)
   * [Business Aspect](#business-aspect)
@@ -15,6 +16,32 @@
 
 ## Overview
 This is a vanilla classification model for a most common dataset, Telecom Churn predictions in Indian and South Asian Market. This project has two parts. A Telecom Churn prediction model for High Value Customers with maximum accuracy and another approach to find driving factors that influencing Churn in the Telecom company.
+
+## Features of data
+* Data_Features ::
+**********
+  * *customerID* - customer id
+  * *gender* - client gender (male / female)
+  * *SeniorCitizen* - whether the client is a pensioner (1, 0)
+  * *Partner* - whether the client is married (Yes, No)
+  * *Dependents* - does the client have dependents (Yes, No)
+  * *tenure* - how many months a person has been a client on the company
+  * *PhoneService* - is the telephone service activated (Yes, No)
+  * *MultipleLines* - whether multiple telephone lines are connected (Yes, No, No phone service)
+  * *InternetService* - client's Internet provider (DSL, Fiber optic, No)
+  * *OnlineSecurity* - is the online security service enabled (Yes, No, No internet service)
+  * *OnlineBackup* - is the online backup service activated (Yes, No, No internet service)
+  * *DeviceProtection* - does the client have equipment insurance (Yes, No, No internet service)
+  * *TechSupport* - is the technical support service activated (Yes, No, No internet service)
+  * *StreamingTV* - is the streaming TV service activated (Yes, No, No internet service)
+  * *StreamingMovies* - is the streaming cinema service activated (Yes, No, No internet service)
+  * *Contract* - type of customer contract (Month-to-month, One year, Two year)
+  * *PaperlessBilling* - whether the client uses paperless billing (Yes, No)
+  * *PaymentMethod* - payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic))
+  * *MonthlyCharges* - current monthly payment
+  * *TotalCharges* - the total amount that the client has paid for the services for the entire time
+  * *Churn* - whether there was a churn (Yes or No)
+     
 
 ## Motivation
 In a Telecom industry, customers can choose from multiple service providers and actively switch from one operator to another. In this highly competitive market, the telecommunications industry experiences an average of 15-25% annual churn rate. Given the fact that it costs 5-10 times more to acquire a new customer than to retain an existing one, customer retention has now become even more important than customer acquisition.
